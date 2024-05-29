@@ -47,14 +47,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Hier sind die SHA-256-gehashten Werte eingefügt
     const storedUsers = {
-        'usernameHash': '6d9010b2b7a1483b256ae7477738dba7c530bd9ba53db1d6691441e74b83608a',
-        'passwordHash': '6b3a55e0261b0304143f805a24924d0c1c44524821305f31d9277843b8a10f4e'
+        'usernameHash': '04f8996da763b7a969b1028ee3007569eaf3a635486ddab211d512c85b9df8fb',
+        'passwordHash': '5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8'
     };
 
     loginForm.addEventListener("submit", (event) => {
         event.preventDefault();
         const username = document.getElementById("username").value;
         const password = document.getElementById("password").value;
+        console.log(username);
 
         const usernameHash = sha256(username);
         const passwordHash = sha256(password);
