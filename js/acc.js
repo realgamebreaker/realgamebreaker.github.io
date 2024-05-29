@@ -34,27 +34,6 @@ document.addEventListener("DOMContentLoaded", () => {
         document.cookie = name + '=; Max-Age=-99999999;';
     };
 
-    const checkDeveloperTools = () => {
-        let checkStatus = false;
-        const element = new Image();
-        Object.defineProperty(element, 'id', {
-            get: function () {
-                checkStatus = true;
-                throw new Error("Detected Developer Tools!");
-            }
-        });
-
-        setInterval(() => {
-            checkStatus = false;
-            console.log(element);
-            console.clear();
-            if (checkStatus) {
-                alert("Detected Developer Tools. Closing site.");
-                window.close();
-            }
-        }, 1000);
-    };
-
     const authenticateUser = () => {
         const usernameHash = getCookie("usernameHash");
         const passwordHash = getCookie("passwordHash");
@@ -79,7 +58,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const usernameHash = sha256(username);
         const passwordHash = sha256(password);
-
+        console.log(usernameHash);
+        console.log(storedUsers['usernameHash']);
+        console.log(passwordHash);
+        console.log(storedUsers['passwordHash']);
         if (storedUsers['usernameHash'] == usernameHash && storedUsers['usernameHash'] == passwordHash) {
             setCookie("usernameHash", usernameHash, 7);
             setCookie("passwordHash", passwordHash, 7);
@@ -97,5 +79,4 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     authenticateUser();
-    checkDeveloperTools();
 });
