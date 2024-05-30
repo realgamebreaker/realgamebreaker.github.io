@@ -56,18 +56,23 @@ document.addEventListener("DOMContentLoaded", () => {
         const password = document.getElementById("password").value;
         console.log(username);
 
-        const usernameHash = sha256(username);
-        const passwordHash = sha256(password);
-        console.log(usernameHash);
-        console.log(storedUsers['usernameHash']);
-        console.log(passwordHash);
-        console.log(storedUsers['passwordHash']);
-        if (storedUsers['usernameHash'] === usernameHash && storedUsers['usernameHash'] === passwordHash) {
+        // const usernameHash = sha256(username);
+        // const passwordHash = sha256(password);
+        const usernameHash = sha256(username).trim();
+        const passwordHash = sha256(password).trim();
+
+        console.log('Computed usernameHash:', usernameHash);
+        console.log('Stored usernameHash:', storedUsers['usernameHash']);
+        console.log('Computed passwordHash:', passwordHash);
+        console.log('Stored passwordHash:', storedUsers['passwordHash']);
+
+        if (storedUsers['usernameHash'] === usernameHash && storedUsers['passwordHash'] === passwordHash) {
             setCookie("usernameHash", usernameHash, 7);
-            setCookie("passwordHash", passwordHash, 7);
-            authenticateUser();
+         setCookie("passwordHash", passwordHash, 7);
+           authenticateUser();
         } else {
-            alert("Invalid Username or Password!");
+           console.error("Hashes do not match!");
+             alert("Invalid Username or Password!");
         }
     });
 
