@@ -44,8 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
             welcomeMessage.textContent = `Willkommen zurück!`;
         }
     };
-
-    // Hier sind die SHA-256-gehashten Werte eingefügt
+    
     const storedUsers = {
         'usernameHash': '04f8996da763b7a969b1028ee3007569eaf3a635486ddab211d512c85b9df8fb',
         'passwordHash': '5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8'
@@ -63,7 +62,7 @@ document.addEventListener("DOMContentLoaded", () => {
         console.log(storedUsers['usernameHash']);
         console.log(passwordHash);
         console.log(storedUsers['passwordHash']);
-        if (storedUsers['usernameHash'] == usernameHash && storedUsers['usernameHash'] == passwordHash) {
+        if (storedUsers['usernameHash'] === usernameHash && storedUsers['usernameHash'] === passwordHash) {
             setCookie("usernameHash", usernameHash, 7);
             setCookie("passwordHash", passwordHash, 7);
             authenticateUser();
