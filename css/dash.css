@@ -3,7 +3,7 @@ body{
   display:flex;
   justify-content:center;
   align-items:center;
-  background:url('https://images.unsplash.com/photo-1550236520-7050f3582da0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1575&q=80');
+  background:url(/assets/back.jpg);
   background-size:cover;
   background-position:center;
 }
@@ -16,7 +16,7 @@ body{
   border:1px solid white;
   border-radius:20px;
   
-  backdrop-filter:blur(20px) brightness(200%);
+  backdrop-filter:blur(10px);
   
   display:flex;
   flex-direction:column;
