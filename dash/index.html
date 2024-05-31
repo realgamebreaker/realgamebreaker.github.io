@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Login Form</title>
+    <title>Dashboard</title>
+    <script src="/js/dash.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <style>
         body {
             background-color: #333;
-            font-family: Arial, sans-serif;
+            font-family: "Montserrat";
         }
 
         .container {
@@ -57,6 +61,7 @@
         border-radius: 10px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
         float: left;
+        height: 100%;
     }
 
     .sidebar-item {
@@ -82,61 +87,72 @@
         background-color: #fff;
         border-radius: 10px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        height: 100%;
+    }
+
+    button {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            background-color: purple;
+            color: #fff;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        
+    #welcome-container {
+        display: none;
     }
     </style>
 </head>
 <body>
-    <div class="container">
+    <div class="container" id="login-container">
         <h1>Login Form</h1>
-        <form>
+        <form id="login-form">
             <div class="form-group">
-                <label for="username">Username</label>
-                <input type="text" id="username" placeholder="Enter your username">
+                <input type="text" id="username" placeholder="Username">
             </div>
             <div class="form-group">
-                <label for="password">Password</label>
-                <input type="password" id="password" placeholder="Enter your password">
+                <input type="password" id="password" placeholder="Password">
             </div>
             <div class="form-group">
                 <button type="submit">Login</button>
             </div>
         </form>
     </div>
+<div id="welcome-container">
+    <div class="sidebar">
+        <button class="sidebar-item active" onclick="togglePage('home')">Home</button>
+        <button class="sidebar-item" onclick="togglePage('apps')">Apps</button>
+    </div>
     
-</body>
-<div class="sidebar">
-    <button class="sidebar-item active" onclick="togglePage('home')">Home</button>
-    <button class="sidebar-item" onclick="togglePage('apps')">Apps</button>
+    <div id="home" class="page">
+        <h2>Welcome to the Home Page</h2>
+        <p id="Welcome-message">This is an example content for the Home page.</p>
+    </div>
+    
+    <div id="apps" class="page" style="display: none;">
+        <h2>Welcome to the Apps Page</h2>
+        <p>This is an example content for the Apps page.</p>
+    </div>
 </div>
-
-<div id="home" class="page">
-    <h2>Welcome to the Home Page</h2>
-    <p>This is an example content for the Home page.</p>
-</div>
-
-<div id="apps" class="page" style="display: none;">
-    <h2>Welcome to the Apps Page</h2>
-    <p>This is an example content for the Apps page.</p>
-</div>
-
-<script>
-    function togglePage(page) {
-        var pages = document.getElementsByClassName("page");
-        var sidebarItems = document.getElementsByClassName("sidebar-item");
-
-        for (var i = 0; i < pages.length; i++) {
-            if (pages[i].id === page) {
-                pages[i].style.display = "block";
-                sidebarItems[i].classList.add("active");
-            } else {
-                pages[i].style.display = "none";
-                sidebarItems[i].classList.remove("active");
+    
+    <script>
+        function togglePage(page) {
+            var pages = document.getElementsByClassName("page");
+            var sidebarItems = document.getElementsByClassName("sidebar-item");
+    
+            for (var i = 0; i < pages.length; i++) {
+                if (pages[i].id === page) {
+                    pages[i].style.display = "block";
+                    sidebarItems[i].classList.add("active");
+                } else {
+                    pages[i].style.display = "none";
+                    sidebarItems[i].classList.remove("active");
+                }
             }
         }
-    }
-</script>
-
-<style>
-
-</style>
+    </script>
+</body>
 </html>
