@@ -1,3 +1,40 @@
+.login-section {
+    background-color: purple;
+    color: white;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.form-group label {
+    color: white;
+}
+
+.form-group input {
+    background-color: lavender;
+    color: purple;
+    border: none;
+    padding: 5px;
+    border-radius: 3px;
+}
+
+.form-group input:focus {
+    outline: none;
+    box-shadow: 0 0 5px purple;
+}
+
+button[type="submit"] {
+    background-color: purple;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background-color: darkpurple;
+}
+
 html,[data-theme=light]{
     --blue: #0074D8;
     --blue-l: #1492FF;
