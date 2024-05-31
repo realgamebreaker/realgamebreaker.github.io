@@ -4,73 +4,139 @@
     <title>Login Form</title>
     <style>
         body {
-            background-color: #f2f2f2;
+            background-color: #333;
             font-family: Arial, sans-serif;
         }
-        
+
         .container {
             width: 300px;
             margin: 0 auto;
             padding: 20px;
-            background-color: #ffffff;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            background-color: #222;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
         }
-        
-        h5, h1 {
+
+        h1 {
+            color: #fff;
             text-align: center;
-            color: #6a1b9a;
         }
-        
+
         .form-group {
             margin-bottom: 20px;
         }
-        
+
         .form-group label {
             display: block;
-            font-weight: bold;
-            color: #6a1b9a;
+            color: #fff;
+            margin-bottom: 5px;
         }
-        
+
         .form-group input {
             width: 100%;
             padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 3px;
+            border-radius: 5px;
+            border: none;
         }
-        
+
         .form-group button {
             width: 100%;
             padding: 10px;
-            background-color: #6a1b9a;
-            color: #ffffff;
+            border-radius: 5px;
             border: none;
-            border-radius: 3px;
+            background-color: purple;
+            color: #fff;
+            font-weight: bold;
             cursor: pointer;
         }
-        
-        .form-group button:hover {
-            background-color: #4a148c;
-        }
+
+        .sidebar {
+        width: 200px;
+        background-color: #222;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        float: left;
+    }
+
+    .sidebar-item {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        border-radius: 5px;
+        border: none;
+        background-color: #555;
+        color: #fff;
+        font-weight: bold;
+        cursor: pointer;
+        margin-bottom: 10px;
+    }
+
+    .sidebar-item.active {
+        background-color: purple;
+    }
+
+    .page {
+        margin-left: 220px;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Dashboard</h1>
-        <h5>Login</h5>
+        <h1>Login Form</h1>
         <form>
             <div class="form-group">
                 <label for="username">Username</label>
-                <input type="text" id="username" name="username" required>
+                <input type="text" id="username" placeholder="Enter your username">
             </div>
             <div class="form-group">
                 <label for="password">Password</label>
-                <input type="password" id="password" name="password" required>
+                <input type="password" id="password" placeholder="Enter your password">
             </div>
             <div class="form-group">
                 <button type="submit">Login</button>
             </div>
         </form>
     </div>
+    
 </body>
+<div class="sidebar">
+    <button class="sidebar-item active" onclick="togglePage('home')">Home</button>
+    <button class="sidebar-item" onclick="togglePage('apps')">Apps</button>
+</div>
+
+<div id="home" class="page">
+    <h2>Welcome to the Home Page</h2>
+    <p>This is an example content for the Home page.</p>
+</div>
+
+<div id="apps" class="page" style="display: none;">
+    <h2>Welcome to the Apps Page</h2>
+    <p>This is an example content for the Apps page.</p>
+</div>
+
+<script>
+    function togglePage(page) {
+        var pages = document.getElementsByClassName("page");
+        var sidebarItems = document.getElementsByClassName("sidebar-item");
+
+        for (var i = 0; i < pages.length; i++) {
+            if (pages[i].id === page) {
+                pages[i].style.display = "block";
+                sidebarItems[i].classList.add("active");
+            } else {
+                pages[i].style.display = "none";
+                sidebarItems[i].classList.remove("active");
+            }
+        }
+    }
+</script>
+
+<style>
+
+</style>
 </html>
