@@ -41,7 +41,6 @@ document.addEventListener("DOMContentLoaded", () => {
         if (usernameHash && passwordHash) {
             loginContainer.style.display = "none";
             welcomeContainer.style.display = "block";
-            welcomeMessage.textContent = `Willkommen zurück!`;
         }
     };
     
