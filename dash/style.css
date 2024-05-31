@@ -875,9 +875,6 @@ svg.wave>path{
 ._txt-white{
     color:var(--white) !important
 }
-main section{
-    display:none
-}
 .squares{
     position:fixed;
     width:100vw;
